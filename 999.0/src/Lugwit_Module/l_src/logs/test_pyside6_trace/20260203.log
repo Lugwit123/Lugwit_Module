@@ -1,0 +1,340 @@
+
+[LogFileHandler] ====== 批量写入 10 条 @ 2026-02-03 00:25:37 ======
+[2026-02-03 00:25:01] 
+{WARNING}     "程序开始"   2026-02-03 00:25:01----code_context : lprint("程序开始") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:127, -fn: main, 打印次数: 1/2   
+
+[2026-02-03 00:25:01] 
+{WARNING}     "PySide6 应用启动"   2026-02-03 00:25:01----code_context : lprint("PySide6 应用启动") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:64, -fn: __init__, 打印次数: 1/2   
+
+[2026-02-03 00:25:02] 
+{WARNING}     "进入事件循环"   2026-02-03 00:25:02----code_context : lprint("进入事件循环") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:133, -fn: main, 打印次数: 1/2   
+
+[2026-02-03 00:25:21] 
+{WARNING}     "简单按钮被点击，次数: {}",
+    1   2026-02-03 00:25:21----code_context : lprint("简单按钮被点击，次数: {}", self.click_count) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:70, -fn: on_simple_click, 打印次数: 1/2   
+
+[2026-02-03 00:25:21] 
+{WARNING}     "simple_calculation 被调用，参数 n={}",
+    1   2026-02-03 00:25:21----code_context : lprint("simple_calculation 被调用，参数 n={}", n) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:89, -fn: simple_calculation, 打印次数: 1/2   
+
+[2026-02-03 00:25:21] 
+{WARNING}     "add({}, {}) = {}",
+    1,
+    10,
+    11   2026-02-03 00:25:21----code_context : lprint("add({}, {}) = {}", a, b, result) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:104, -fn: add, 打印次数: 1/2   
+
+[2026-02-03 00:25:21] 
+{WARNING}     "multiply({}, {}) = {}",
+    11,
+    2,
+    22   2026-02-03 00:25:21----code_context : lprint("multiply({}, {}) = {}", a, b, result) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:110, -fn: multiply, 打印次数: 1/2   
+
+[2026-02-03 00:25:21] 
+[向前追踪结果]
+
+[向前追踪] 总事件数: 24 (调用: 5, 返回: 5, 异常: 0)
+[向前追踪] 总耗时: 0.050 秒
+    >>traceForward(深度1): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:86 in simple_calculation()
+    >>traceForward(深度3): shibokensupport/signature/loader.py:59 in feature_import()
+    >>traceForward(深度3): shibokensupport/signature/loader.py:67 in feature_imported()
+    >>traceForward(深度2): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:101 in add()
+
+>>Function Code (深度2 - add): [起始行号: 101]
+   1 |  101 |     def add(self, a, b):
+   2 |  102 |         """深度2：加法"""
+         [变量] self=<__main__.MainWindow(0x2d67c0b34e0) at 0x000002D67DE03840> (MainWindow), a=1 (int), b=10 (int)
+   3 |  103 |         result = a + b
+         [变量] self=<__main__.MainWindow(0x2d67c0b34e0) at 0x000002D67DE03840> (MainWindow), a=1 (int), b=10 (int), result=11 (int)
+   4 |  104 |         lprint("add({}, {}) = {}", a, b, result)
+         [变量] self=<__main__.MainWindow(0x2d67c0b34e0) at 0x000002D67DE03840> (MainWindow), a=1 (int), b=10 (int), result=11 (int)
+   5 |  105 |         return result
+         [返回值] 11
+    >>traceForward(深度2): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:107 in multiply()
+
+>>Function Code (深度2 - multiply): [起始行号: 107]
+   1 |  107 |     def multiply(self, a, b):
+   2 |  108 |         """深度2：乘法"""
+         [变量] self=<__main__.MainWindow(0x2d67c0b34e0) at 0x000002D67DE03840> (MainWindow), a=11 (int), b=2 (int)
+   3 |  109 |         result = a * b
+         [变量] self=<__main__.MainWindow(0x2d67c0b34e0) at 0x000002D67DE03840> (MainWindow), a=11 (int), b=2 (int), result=22 (int)
+   4 |  110 |         lprint("multiply({}, {}) = {}", a, b, result)
+         [变量] self=<__main__.MainWindow(0x2d67c0b34e0) at 0x000002D67DE03840> (MainWindow), a=11 (int), b=2 (int), result=22 (int)
+   5 |  111 |         return result
+         [返回值] 22
+  d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:86 in simple_calculation() traceForward结束
+
+[2026-02-03 00:25:21] 
+[向前追踪摘要]
+
+=== 追踪摘要 ===
+总耗时: 0.050 秒
+
+函数调用次数排行（Top 10）:
+  1. simple_calculation - 1 次
+  2. feature_import - 1 次
+  3. feature_imported - 1 次
+  4. add - 1 次
+  5. multiply - 1 次
+
+文件调用次数排行（Top 5）:
+  1. test_pyside6_trace.py - 3 次
+  2. loader.py - 2 次
+[2026-02-03 00:25:37] 
+{WARNING}     "程序退出，退出码: {}",
+    0   2026-02-03 00:25:37----code_context : lprint("程序退出，退出码: {}", exit_code) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:136, -fn: main, 打印次数: 1/2   
+
+
+[LogFileHandler] ====== 批量写入 18 条 @ 2026-02-03 00:28:50 ======
+[2026-02-03 00:28:37] 
+{WARNING}     "程序开始"   2026-02-03 00:28:37----code_context : lprint("程序开始") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:142, -fn: main, 打印次数: 1/2   
+
+[2026-02-03 00:28:37] 
+{WARNING}     "PySide6 应用启动"   2026-02-03 00:28:37----code_context : lprint("PySide6 应用启动") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:70, -fn: __init__, 打印次数: 1/2   
+
+[2026-02-03 00:28:38] 
+{WARNING}     "进入事件循环"   2026-02-03 00:28:38----code_context : lprint("进入事件循环") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:148, -fn: main, 打印次数: 1/2   
+
+[2026-02-03 00:28:39] 
+{WARNING}     "simple_calculation_direct 被调用，次数: {}",
+    1   2026-02-03 00:28:39----code_context : lprint("simple_calculation_direct 被调用，次数: {}", self.click_count) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:78, -fn: simple_calculation_direct, 打印次数: 1/2   
+
+[2026-02-03 00:28:39] 
+{WARNING}     "add({}, {}) = {}",
+    1,
+    10,
+    11   2026-02-03 00:28:39----code_context : lprint("add({}, {}) = {}", a, b, result) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:119, -fn: add, 打印次数: 1/2   
+
+[2026-02-03 00:28:39] 
+{WARNING}     "multiply({}, {}) = {}",
+    11,
+    2,
+    22   2026-02-03 00:28:39----code_context : lprint("multiply({}, {}) = {}", a, b, result) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:125, -fn: multiply, 打印次数: 1/2   
+
+[2026-02-03 00:28:39] 
+[向前追踪结果]
+
+[向前追踪] 总事件数: 27 (调用: 5, 返回: 5, 异常: 0)
+[向前追踪] 总耗时: 0.022 秒
+    >>traceForward(深度1): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:73 in simple_calculation_direct()
+    >>traceForward(深度3): shibokensupport/signature/loader.py:59 in feature_import()
+    >>traceForward(深度3): shibokensupport/signature/loader.py:67 in feature_imported()
+    >>traceForward(深度2): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:116 in add()
+
+>>Function Code (深度2 - add): [起始行号: 116]
+   1 |  116 |     def add(self, a, b):
+   2 |  117 |         """深度2：加法"""
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=1 (int), b=10 (int)
+   3 |  118 |         result = a + b
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=1 (int), b=10 (int), result=11 (int)
+   4 |  119 |         lprint("add({}, {}) = {}", a, b, result)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=1 (int), b=10 (int), result=11 (int)
+   5 |  120 |         return result
+         [返回值] 11
+    >>traceForward(深度2): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:122 in multiply()
+
+>>Function Code (深度2 - multiply): [起始行号: 122]
+   1 |  122 |     def multiply(self, a, b):
+   2 |  123 |         """深度2：乘法"""
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=11 (int), b=2 (int)
+   3 |  124 |         result = a * b
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=11 (int), b=2 (int), result=22 (int)
+   4 |  125 |         lprint("multiply({}, {}) = {}", a, b, result)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=11 (int), b=2 (int), result=22 (int)
+   5 |  126 |         return result
+         [返回值] 22
+  d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:73 in simple_calculation_direct() traceForward结束
+
+[2026-02-03 00:28:39] 
+[向前追踪摘要]
+
+=== 追踪摘要 ===
+总耗时: 0.022 秒
+
+函数调用次数排行（Top 10）:
+  1. simple_calculation_direct - 1 次
+  2. feature_import - 1 次
+  3. feature_imported - 1 次
+  4. add - 1 次
+  5. multiply - 1 次
+
+文件调用次数排行（Top 5）:
+  1. test_pyside6_trace.py - 3 次
+  2. loader.py - 2 次
+[2026-02-03 00:28:47] 
+{WARNING}     "复杂按钮被点击，次数: {}",
+    2   2026-02-03 00:28:47----code_context : lprint("复杂按钮被点击，次数: {}", self.click_count) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:91, -fn: on_complex_click, 打印次数: 1/2   
+
+[2026-02-03 00:28:47] 
+{WARNING}     "complex_calculation 被调用，参数 n={}",
+    2   2026-02-03 00:28:47----code_context : lprint("complex_calculation 被调用，参数 n={}", n) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:100, -fn: complex_calculation, 打印次数: 1/2   
+
+[2026-02-03 00:28:47] 
+{WARNING}     "add({}, {}) = {}",
+    2,
+    5,
+    7   2026-02-03 00:28:47----code_context : lprint("add({}, {}) = {}", a, b, result) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:119, -fn: add, 打印次数: 2/2   
+
+[2026-02-03 00:28:47] 
+{WARNING}     "multiply({}, {}) = {}",
+    7,
+    3,
+    21   2026-02-03 00:28:47----code_context : lprint("multiply({}, {}) = {}", a, b, result) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:125, -fn: multiply, 打印次数: 2/2   
+
+[2026-02-03 00:28:47] 
+[向前追踪结果]
+
+[向前追踪] 总事件数: 45 (调用: 9, 返回: 9, 异常: 0)
+[向前追踪] 总耗时: 0.020 秒
+    >>traceForward(深度1): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:97 in complex_calculation()
+    >>traceForward(深度3): shibokensupport/signature/loader.py:59 in feature_import()
+    >>traceForward(深度4): shibokensupport/feature.py:88 in feature_import()
+    >>traceForward(深度3): shibokensupport/signature/loader.py:67 in feature_imported()
+    >>traceForward(深度4): shibokensupport/feature.py:134 in feature_imported()
+    >>traceForward(深度2): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:128 in process_data()
+
+```python
+>>Function Code (深度2 - process_data): [起始行号: 128]
+   1 |  128 |     def process_data(self, n):
+   2 |  129 |         """深度2：处理数据"""
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), n=2 (int)
+   3 |  130 |         step1 = self.add(n, 5)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), n=2 (int), step1=7 (int)
+   4 |  131 |         step2 = self.multiply(step1, 3)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), n=2 (int), step1=7 (int), step2=21 (int)
+   5 |  132 |         step3 = self.format_output(step2)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), n=2 (int), step1=7 (int), step2=21 (int), step3='计算结果: 21' (str)
+   6 |  133 |         return step3
+         [返回值] '计算结果: 21'
+    >>traceForward(深度3): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:116 in add()
+
+>>Function Code (深度3 - add): [起始行号: 116]
+   1 |  116 |     def add(self, a, b):
+   2 |  117 |         """深度2：加法"""
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=2 (int), b=5 (int)
+   3 |  118 |         result = a + b
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=2 (int), b=5 (int), result=7 (int)
+   4 |  119 |         lprint("add({}, {}) = {}", a, b, result)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=2 (int), b=5 (int), result=7 (int)
+   5 |  120 |         return result
+         [返回值] 7
+    >>traceForward(深度3): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:122 in multiply()
+
+>>Function Code (深度3 - multiply): [起始行号: 122]
+   1 |  122 |     def multiply(self, a, b):
+   2 |  123 |         """深度2：乘法"""
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=7 (int), b=3 (int)
+   3 |  124 |         result = a * b
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=7 (int), b=3 (int), result=21 (int)
+   4 |  125 |         lprint("multiply({}, {}) = {}", a, b, result)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=7 (int), b=3 (int), result=21 (int)
+   5 |  126 |         return result
+         [返回值] 21
+    >>traceForward(深度3): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:135 in format_output()
+
+>>Function Code (深度3 - format_output): [起始行号: 135]
+   1 |  135 |     def format_output(self, value):
+   2 |  136 |         """深度3：格式化输出"""
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), value=21 (int)
+   3 |  137 |         formatted = "计算结果: {}".format(value)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), value=21 (int), formatted='计算结果: 21' (str)
+   4 |  138 |         return formatted
+         [返回值] '计算结果: 21'
+  d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:97 in complex_calculation() traceForward结束
+```python
+[2026-02-03 00:28:47] 
+[向前追踪摘要]
+
+=== 追踪摘要 ===
+总耗时: 0.020 秒
+
+函数调用次数排行（Top 10）:
+  1. feature_import - 2 次
+  2. feature_imported - 2 次
+  3. complex_calculation - 1 次
+  4. process_data - 1 次
+  5. add - 1 次
+  6. multiply - 1 次
+  7. format_output - 1 次
+
+文件调用次数排行（Top 5）:
+  1. test_pyside6_trace.py - 5 次
+  2. loader.py - 2 次
+  3. feature.py - 2 次
+[2026-02-03 00:28:48] 
+{WARNING}     "simple_calculation_with_param 被调用，multiplier={}",
+    20   2026-02-03 00:28:48----code_context : lprint("simple_calculation_with_param 被调用，multiplier={}", multiplier) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:108, -fn: simple_calculation_with_param, 打印次数: 1/2   
+
+[2026-02-03 00:28:48] 
+[向前追踪结果]
+
+[向前追踪] 总事件数: 25 (调用: 5, 返回: 5, 异常: 0)
+[向前追踪] 总耗时: 0.010 秒
+    >>traceForward(深度1): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:105 in simple_calculation_with_param()
+    >>traceForward(深度3): shibokensupport/signature/loader.py:59 in feature_import()
+    >>traceForward(深度3): shibokensupport/signature/loader.py:67 in feature_imported()
+    >>traceForward(深度2): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:116 in add()
+
+>>Function Code (深度2 - add): [起始行号: 116]
+   1 |  116 |     def add(self, a, b):
+   2 |  117 |         """深度2：加法"""
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=2 (int), b=20 (int)
+   3 |  118 |         result = a + b
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=2 (int), b=20 (int), result=22 (int)
+   4 |  119 |         lprint("add({}, {}) = {}", a, b, result)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=2 (int), b=20 (int), result=22 (int)
+   5 |  120 |         return result
+         [返回值] 22
+    >>traceForward(深度2): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:122 in multiply()
+
+>>Function Code (深度2 - multiply): [起始行号: 122]
+   1 |  122 |     def multiply(self, a, b):
+   2 |  123 |         """深度2：乘法"""
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=22 (int), b=2 (int)
+   3 |  124 |         result = a * b
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=22 (int), b=2 (int), result=44 (int)
+   4 |  125 |         lprint("multiply({}, {}) = {}", a, b, result)
+         [变量] self=<__main__.MainWindow(0x124f93caa70) at 0x00000124FB3DA780> (MainWindow), a=22 (int), b=2 (int), result=44 (int)
+   5 |  126 |         return result
+         [返回值] 44
+  d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:105 in simple_calculation_with_param() traceForward结束
+
+[2026-02-03 00:28:48] 
+[向前追踪摘要]
+
+=== 追踪摘要 ===
+总耗时: 0.010 秒
+
+函数调用次数排行（Top 10）:
+  1. simple_calculation_with_param - 1 次
+  2. feature_import - 1 次
+  3. feature_imported - 1 次
+  4. add - 1 次
+  5. multiply - 1 次
+
+文件调用次数排行（Top 5）:
+  1. test_pyside6_trace.py - 3 次
+  2. loader.py - 2 次
+[2026-02-03 00:28:50] 
+{WARNING}     "程序退出，退出码: {}",
+    0   2026-02-03 00:28:50----code_context : lprint("程序退出，退出码: {}", exit_code) 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_pyside6_trace.py:151, -fn: main, 打印次数: 1/2   
+

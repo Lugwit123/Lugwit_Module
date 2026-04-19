@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../../../plug_in/Lugwit_plug/Lugwit_UnrealPlug"
+		},
+		{
+			"path": "../../../LQtLib"
+		},
+		{
+			"path": "../.."
+		}
+	],
+    "settings": {}
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "name": "FileHierarchy",
+    "expanded": true,
+    "description": "文件层级",
+    "condition": "True",
+    "subs": [
+      {
+        "name": "\"/(.+?)/[0-9_]*Main-production/",
+        "expanded": true,
+        "description": "ProjectName",
+        "condition": "True",
+        "subs": [
+          {
+            "name": ".+/[0-9_]*Main-production",
+            "expanded": true,
+            "description": "ProjectDir",
+            "condition": "True",
+            "subs": [
+              {
+                "name": ".+/[0-9]+_episode",
+                "expanded": true,
+                "description": "AssetDir",
+                "condition": "True",
+                "subs": [
+                  {
+                    "name": "/CH/|/PRP/|/Set/",
+                    "expanded": true,
+                    "description": "AssetType",
+                    "condition": "True",
+                    "subs": [
+                      {
+                        "name": "/Ep_*[0-9]+/",
+                        "expanded": true,
+                        "description": "AssetEpName",
+                        "condition": "True",
+                        "subs": [
+                          {
+                            "name": "/Ep_*[0-9]+/(.+?)/",
+                            "expanded": true,
+                            "description": "AssetName",
+                            "condition": "True",
+                            "subs": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": ".+/[0-9_]+_animation/",
+                "expanded": true,
+                "description": "shotDir",
+                "condition": "True",
+                "subs": [
+                  {
+                    "name": "/Ep_*[0-9]+/",
+                    "expanded": true,
+                    "description": "ShotEpName",
+                    "condition": "True",
+                    "subs": [
+                      {
+                        "name": "Ep_*[0-9]+/(.+?)/",
+                        "expanded": true,
+                        "description": "ShotStep",
+                        "condition": "True",
+                        "subs": [
+                          {
+                            "name": "scenes&movies",
+                            "expanded": true,
+                            "description": "",
+                            "condition": "True",
+                            "subs": [
+                              {
+                                "name": "sc[0-9]+[a-z]*",
+                                "expanded": true,
+                                "description": "ScName",
+                                "condition": "True",
+                                "subs": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "MayaOutLine",
+    "expanded": true,
+    "description": "maya大纲",
+    "condition": "True",
+    "subs": [
+      {
+        "name": "['geometry']",
+        "expanded": true,
+        "description": "GeometryGroup",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "UnrealRoot",
+        "expanded": true,
+        "description": "JntGroup",
+        "condition": "True",
+        "subs": []
+      }
+    ]
+  },
+  {
+    "name": "Unreal",
+    "expanded": true,
+    "description": "description",
+    "condition": "True",
+    "subs": [
+      {
+        "name": "DirHierarchy",
+        "expanded": true,
+        "description": "description",
+        "condition": "True",
+        "subs": [
+          {
+            "name": "Z:/01_Main-Production/01_episode/Ep100",
+            "expanded": true,
+            "description": "unrealUsualAssetDir",
+            "condition": "True",
+            "subs": []
+          },
+          {
+            "name": "Z:/01_Main-Production/01_episode/{EpName}",
+            "expanded": true,
+            "description": "unrealTposeAssetDir",
+            "condition": "True",
+            "subs": []
+          },
+          {
+            "name": "Z:/02_Shot-Production/01_Animation/{EpName/{ShotName}",
+            "expanded": true,
+            "description": "unrealShotDir",
+            "condition": "True",
+            "subs": []
+          }
+        ]
+      },
+      {
+        "name": "True",
+        "expanded": true,
+        "description": "saveUeProject",
+        "condition": "True",
+        "subs": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,148 @@
+[2026-01-30 16:44:14] 
+{DEBUG}     "这是一条 DEBUG 级别的日志"   2026-01-30 16:44:14----code_context : lprint.debug("这是一条 DEBUG 级别的日志") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:40, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{INFO}     "这是一条 INFO 级别的日志"   2026-01-30 16:44:14----code_context : lprint.info("这是一条 INFO 级别的日志") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:41, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{WARNING}     "这是一条 WARNING 级别的日志"   2026-01-30 16:44:14----code_context : lprint.warning("这是一条 WARNING 级别的日志") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:42, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{ERROR}     "这是一条 ERROR 级别的日志"   2026-01-30 16:44:14----code_context : lprint.error("这是一条 ERROR 级别的日志") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:43, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{CRITICAL}     "这是一条 CRITICAL 级别的日志"   2026-01-30 16:44:14----code_context : lprint.critical("这是一条 CRITICAL 级别的日志") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:44, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{WARNING}     "普通消息打印"   2026-01-30 16:44:14----code_context : lprint("普通消息打印") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:48, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{WARNING}     "格式化消息: {} + {} = {}",
+    1,
+    2,
+    3   2026-01-30 16:44:14----code_context : lprint("格式化消息: {} + {} = {}", 1, 2, 3) 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:49, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{WARNING}     "中文测试: 你好，世界！"   2026-01-30 16:44:14----code_context : lprint("中文测试: 你好，世界！") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:50, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{WARNING}     "测试 trace_depth"   2026-01-30 16:44:14----code_context : lprint("测试 trace_depth", trace_depth=2) 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:54, -fn: main, 打印次数: 1/2   
+    callBy(深度1): D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:54 in main()
+
+>>Function Code (深度1 - main): [起始行号: 17]
+   1 |   17 | def main():
+   2 |   18 |     """主测试函数"""
+   3 |   19 |     print("=" * 70)
+   4 |   20 |     print("开始测试 lprint 功能")
+   5 |   21 |     print("=" * 70)
+   6 |   22 |     
+   7 |   23 |     # 1. 启用日志文件功能
+   8 |   24 |     print("\n[步骤 1] 启用日志文件功能...")
+   9 |   25 |     lprint.trace_log_enable = True
+  10 |   26 |     
+  11 |   27 |     # 2. 设置日志文件基础目录（可选，默认是 D:\Temp\Log）
+  12 |   28 |     # 可以设置为当前目录下的 logs 文件夹
+  13 |   29 |     log_dir = os.path.join(os.path.dirname(__file__), "logs")
+  14 |   30 |     lprint.log_base_dir = log_dir
+  15 |   31 |     print(f"日志文件将保存到: {lprint.get_log_file_info()['file_path']}")
+  16 |   32 |     
+  17 |   33 |     # 3. 设置日志写入间隔（可选，默认60秒）
+  18 |   34 |     # 为了测试，设置为5秒，这样可以看到更快的写入
+  19 |   35 |     lprint.log_file_interval = 5
+  20 |   36 |     
+  21 |   37 |     # 4. 测试各种级别的日志输出
+  22 |   38 |     print("\n[步骤 2] 测试各种日志级别...")
+  23 |   39 |     
+  24 |   40 |     lprint.debug("这是一条 DEBUG 级别的日志")
+  25 |   41 |     lprint.info("这是一条 INFO 级别的日志")
+  26 |   42 |     lprint.warning("这是一条 WARNING 级别的日志")
+  27 |   43 |     lprint.error("这是一条 ERROR 级别的日志")
+  28 |   44 |     lprint.critical("这是一条 CRITICAL 级别的日志")
+  29 |   45 |     
+  30 |   46 |     # 5. 测试基本打印功能
+  31 |   47 |     print("\n[步骤 3] 测试基本打印功能...")
+  32 |   48 |     lprint("普通消息打印")
+  33 |   49 |     lprint("格式化消息: {} + {} = {}", 1, 2, 3)
+  34 |   50 |     lprint("中文测试: 你好，世界！")
+  35 |   51 |     
+  36 |   52 |     # 6. 测试不同参数
+  37 |   53 |     print("\n[步骤 4] 测试不同参数...")
+  38 |   54 |     lprint("测试 trace_depth", trace_depth=2)
+  39 |   55 |     lprint("测试 max_length", max_length=50)
+  40 |   56 |     lprint("测试多个参数", "参数1", "参数2", {"key": "value"})
+  41 |   57 |     
+  42 |   58 |     # 7. 模拟一些操作
+  43 |   59 |     print("\n[步骤 5] 模拟程序运行过程...")
+  44 |   60 |     for i in range(3):
+  45 |   61 |         lprint.info(f"处理第 {i+1} 个任务...")
+  46 |   62 |         time.sleep(0.5)  # 短暂延迟，模拟处理时间
+  47 |   63 |         lprint.debug(f"任务 {i+1} 处理完成")
+  48 |   64 |     
+  49 |   65 |     # 8. 测试异常情况
+  50 |   66 |     print("\n[步骤 6] 测试异常情况...")
+  51 |   67 |     try:
+  52 |   68 |         result = 1 / 0
+  53 |   69 |     except Exception as e:
+  54 |   70 |         lprint.error(f"捕获到异常: {e}")
+  55 |   71 |     
+  56 |   72 |     # 9. 手动保存日志（可选，程序退出时会自动保存）
+  57 |   73 |     print("\n[步骤 7] 手动保存日志到文件...")
+  58 |   74 |     lprint.save_logs_to_file()
+  59 |   75 |     
+  60 |   76 |     # 10. 显示日志文件信息
+  61 |   77 |     print("\n[步骤 8] 日志文件信息:")
+  62 |   78 |     log_info = lprint.get_log_file_info()
+  63 |   79 |     print(f"  启用状态: {log_info['enabled']}")
+  64 |   80 |     print(f"  写入间隔: {log_info['interval']}秒")
+  65 |   81 |     print(f"  文件路径: {log_info['file_path']}")
+  66 |   82 |     print(f"  缓存数量: {log_info['buffer_count']}")
+  67 |   83 |     print(f"  文件存在: {log_info['file_exists']}")
+  68 |   84 |     if log_info['file_exists']:
+  69 |   85 |         print(f"  文件大小: {log_info['file_size']} 字节")
+  70 |   86 |         print(f"  最后修改:
+  71 |   87 | ... [代码过长，已截断，原始长度: 2000 字符]
+    callBy(深度2): D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:97 in <module>()
+  D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:97 in <module>() callby结束
+
+[2026-01-30 16:44:14] 
+{WARNING}     "测试 max_length"   2026-01-30 16:44:14----code_context : lprint("测试 max_length", max_length=50) 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:55, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{WARNING}     "测试多个参数",
+    "参数1",
+    "参数2",
+    {
+        "key": "value"
+    }   2026-01-30 16:44:14----code_context : lprint("测试多个参数", "参数1", "参数2", {"key": "value"}) 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:56, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:14] 
+{INFO}     "处理第 1 个任务..."   2026-01-30 16:44:14----code_context : lprint.info(f"处理第 {i+1} 个任务...") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:61, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:15] 
+{DEBUG}     "任务 1 处理完成"   2026-01-30 16:44:15----code_context : lprint.debug(f"任务 {i+1} 处理完成") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:63, -fn: main, 打印次数: 1/2   
+
+[2026-01-30 16:44:15] 
+{INFO}     "处理第 2 个任务..."   2026-01-30 16:44:15----code_context : lprint.info(f"处理第 {i+1} 个任务...") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:61, -fn: main, 打印次数: 2/2   
+
+[2026-01-30 16:44:15] 
+{DEBUG}     "任务 2 处理完成"   2026-01-30 16:44:15----code_context : lprint.debug(f"任务 {i+1} 处理完成") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:63, -fn: main, 打印次数: 2/2   
+
+[2026-01-30 16:44:16] 
+{ERROR}     "捕获到异常: division by zero"   2026-01-30 16:44:16----code_context : lprint.error(f"捕获到异常: {e}") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:70, -fn: main, 打印次数: 1/2   
+

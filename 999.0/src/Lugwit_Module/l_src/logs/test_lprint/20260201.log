@@ -1,0 +1,112 @@
+
+[LogFileHandler] ====== 批量写入 5 条 @ 2026-02-01 12:50:53 ======
+[2026-02-01 12:50:53] 
+{WARNING}     "程序开始"   2026-02-01 12:50:53----code_context : lprint("程序开始") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:12, -fn: <module>, 打印次数: 1/2   
+
+[2026-02-01 12:50:53] 
+{WARNING}     "运行中..."   2026-02-01 12:50:53----code_context : lprint("运行中...") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:24, -fn: <module>, 打印次数: 1/2   
+
+[2026-02-01 12:50:53] 
+[向前追踪结果]
+
+[向前追踪] 总事件数: 4 (调用: 2, 返回: 2, 异常: 0)
+    >>traceForward(深度1): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:17 in foo()
+
+>>Function Code (深度1 - foo): [起始行号: 17]
+   1 |   17 | def foo():
+   2 |   18 |     return bar()
+    >>traceForward(深度2): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:20 in bar()
+
+>>Function Code (深度2 - bar): [起始行号: 20]
+   1 |   20 | def bar():
+   2 |   21 |     return 1 + 2
+  d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:17 in foo() traceForward结束
+
+[2026-02-01 12:50:53] 
+[向前追踪摘要]
+
+=== 追踪摘要 ===
+函数调用次数排行（Top 10）:
+  1. foo - 1 次
+  2. bar - 1 次
+
+文件调用次数排行（Top 5）:
+  1. test_lprint.py - 2 次
+[2026-02-01 12:50:53] 
+{WARNING}     "程序结束"   2026-02-01 12:50:53----code_context : lprint("程序结束") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:33, -fn: <module>, 打印次数: 1/2   
+
+
+[LogFileHandler] ====== 批量写入 5 条 @ 2026-02-01 15:42:45 ======
+[2026-02-01 15:42:45] 
+{WARNING}     "程序开始"   2026-02-01 15:42:45----code_context : lprint("程序开始") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:12, -fn: <module>, 打印次数: 1/2   
+
+[2026-02-01 15:42:45] 
+{WARNING}     "调用被 @lprint.trace 装饰的函数..."   2026-02-01 15:42:45----code_context : lprint("调用被 @lprint.trace 装饰的函数...") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:21, -fn: <module>, 打印次数: 1/2   
+
+[2026-02-01 15:42:45] 
+[向前追踪结果]
+
+[向前追踪] 总事件数: 4 (调用: 2, 返回: 2, 异常: 0)
+    >>traceForward(深度1): D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:15 in work()
+    >>traceForward(深度2): D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:17 in inner()
+
+>>Function Code (深度2 - inner): [起始行号: 17]
+   1 |   17 |     def inner():
+   2 |   18 |         return 1 + 2
+  D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:15 in work() traceForward结束
+
+[2026-02-01 15:42:45] 
+[向前追踪摘要]
+
+=== 追踪摘要 ===
+函数调用次数排行（Top 10）:
+  1. work - 1 次
+  2. inner - 1 次
+
+文件调用次数排行（Top 5）:
+  1. test_lprint.py - 2 次
+[2026-02-01 15:42:45] 
+{WARNING}     "程序结束"   2026-02-01 15:42:45----code_context : lprint("程序结束") 
+File: D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:24, -fn: <module>, 打印次数: 1/2   
+
+
+[LogFileHandler] ====== 批量写入 5 条 @ 2026-02-01 21:51:08 ======
+[2026-02-01 21:51:08] 
+{WARNING}     "程序开始"   2026-02-01 21:51:08----code_context : lprint("程序开始") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:12, -fn: <module>, 打印次数: 1/2   
+
+[2026-02-01 21:51:08] 
+{WARNING}     "调用被 @lprint.trace 装饰的函数..."   2026-02-01 21:51:08----code_context : lprint("调用被 @lprint.trace 装饰的函数...") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:21, -fn: <module>, 打印次数: 1/2   
+
+[2026-02-01 21:51:08] 
+[向前追踪结果]
+
+[向前追踪] 总事件数: 4 (调用: 2, 返回: 2, 异常: 0)
+    >>traceForward(深度1): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:15 in work()
+    >>traceForward(深度2): d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:17 in inner()
+
+>>Function Code (深度2 - inner): [起始行号: 17]
+   1 |   17 |     def inner():
+   2 |   18 |         return 1 + 2
+  d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:15 in work() traceForward结束
+
+[2026-02-01 21:51:08] 
+[向前追踪摘要]
+
+=== 追踪摘要 ===
+函数调用次数排行（Top 10）:
+  1. work - 1 次
+  2. inner - 1 次
+
+文件调用次数排行（Top 5）:
+  1. test_lprint.py - 2 次
+[2026-02-01 21:51:08] 
+{WARNING}     "程序结束"   2026-02-01 21:51:08----code_context : lprint("程序结束") 
+File: d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\Lugwit_Module\l_src\test_lprint.py:24, -fn: <module>, 打印次数: 1/2   
+

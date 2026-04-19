@@ -1,0 +1,35 @@
+{
+    "project": {
+        "name": "My Project",
+        "version": "1.0",
+        "contributors": [
+            {
+                "name": "Alice",
+                "role": "Developer"
+            },
+            {
+                "name": "Bob",
+                "role": "Designer"
+            }
+        ]
+    },
+    "settings": {
+        "display": {
+            "brightness": 70,
+            "theme": "dark"
+        },
+        "network": {
+            "wifi": true,
+            "bluetooth": false
+        }
+    },
+    "user": {
+        "name": "John Doe",
+        "age": 30,
+        "preferences": {
+            "language": "English",
+            "layout": "compact"
+        },
+        "skills": ["Python", "Qt", "JavaScript"]
+    }
+}

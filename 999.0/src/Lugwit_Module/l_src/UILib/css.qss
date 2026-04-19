@@ -1,0 +1,6 @@
+QPushButton#pushButton{background-image: url(:/cssimg/img/btn_close_normal.png);width:39px;height:18px;padding-top:0px;border:0px;}
+QPushButton#pushButton:hover{background-image:url(:/cssimg/img/btn_close_highlight.png);}
+QPushButton#pushButton:pressed{background-image:url(:/cssimg/img/btn_close_down.png);}
+ 
+QPushButton#pushButton_2{background-image: url(:/cssimg/img/icon_cog.png);width:16px;height:16px;padding-top:0px;border:0px;margin-right:15px;}
+QPushButton#pushButton_2:hover{background-image:url(:/cssimg/img/icon_cogs.png);}

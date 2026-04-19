@@ -1,0 +1,19 @@
+# coding=utf-8
+os.environ['QtVersion']='PySide2'
+from itertools import islice
+import os,sys,time
+from typing import Any, Iterable, List, Dict, Union
+from Lugwit_Module import *
+
+
+from PyQt6.QtCore import *
+from PyQt6.QtGui import *
+import PyQt6.QtGui as QtGui
+from PyQt6.QtWidgets import *
+import PyQt6
+app=QApplication(sys.argv)
+aa=QComboBox()
+
+aa.addItems(['Option 1', 'Option 2', 'Option 3'])
+aa.show()
+sys.exit(app.exec())

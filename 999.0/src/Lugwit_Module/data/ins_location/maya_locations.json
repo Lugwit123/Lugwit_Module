@@ -1,0 +1,22 @@
+{
+    "2018": {
+        "insDir": "C:/Program Files/Autodesk/Maya2018/",
+        "exeFile": "C:/Program Files/Autodesk/Maya2018//bin/maya.exe",
+        "exist": true
+    },
+    "2020": {
+        "insDir": "C:/Program Files/Autodesk/Maya2020/",
+        "exeFile": "C:/Program Files/Autodesk/Maya2020//bin/maya.exe",
+        "exist": true
+    },
+    "2022": {
+        "insDir": "C:/Program Files/Autodesk/Maya2022/",
+        "exeFile": "C:/Program Files/Autodesk/Maya2022//bin/maya.exe",
+        "exist": true
+    },
+    "2025": {
+        "insDir": "C:/Program Files/Autodesk/Maya2025/",
+        "exeFile": "C:/Program Files/Autodesk/Maya2025//bin/maya.exe",
+        "exist": true
+    }
+}

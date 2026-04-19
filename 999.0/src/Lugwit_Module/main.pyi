@@ -1,0 +1,1 @@
+Lugwit_mayaPluginPath :str

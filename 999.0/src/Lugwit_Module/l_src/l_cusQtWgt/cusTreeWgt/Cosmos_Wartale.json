@@ -1,0 +1,324 @@
+[
+  {
+    "name": "FileHierarchy",
+    "expanded": true,
+    "description": "文件层级",
+    "condition": "True",
+    "subs": [
+      {
+        "name": "/(.+?)/[0-9_]*Main-production/",
+        "expanded": true,
+        "description": "ProjectName",
+        "condition": "True",
+        "subs": [
+          {
+            "name": ".+/[0-9_]*Main-production",
+            "expanded": true,
+            "description": "ProjectDir",
+            "condition": "True",
+            "subs": [
+              {
+                "name": ".+/[0-9]+_episode",
+                "expanded": true,
+                "description": "AssetDir",
+                "condition": "True",
+                "subs": [
+                  {
+                    "name": "/CH/|/PRP/|/Set/|/BG/",
+                    "expanded": true,
+                    "description": "AssetType",
+                    "condition": "True",
+                    "subs": [
+                      {
+                        "name": "/Ep_*[0-9]+/",
+                        "expanded": true,
+                        "description": "AssetEpName",
+                        "condition": "True",
+                        "subs": [
+                          {
+                            "name": "/Ep_*[0-9]+/(.+?)/",
+                            "expanded": true,
+                            "description": "AssetName",
+                            "condition": "True",
+                            "subs": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": ".+/[0-9_]+_animation/",
+                "expanded": true,
+                "description": "shotDir",
+                "condition": "True",
+                "subs": [
+                  {
+                    "name": "/Ep_*[0-9]+/",
+                    "expanded": true,
+                    "description": "ShotEpName",
+                    "condition": "True",
+                    "subs": [
+                      {
+                        "name": "Ep_*[0-9]+/(.+?)/",
+                        "expanded": true,
+                        "description": "ShotStep",
+                        "condition": "True",
+                        "subs": [
+                          {
+                            "name": "scenes&movies",
+                            "expanded": true,
+                            "description": "",
+                            "condition": "True",
+                            "subs": [
+                              {
+                                "name": "sc[0-9]+[a-z]*",
+                                "expanded": true,
+                                "description": "ScName",
+                                "condition": "True",
+                                "subs": []
+                              },
+                              {
+                                "name": "sc([0-9]+[a-z]*)",
+                                "expanded": true,
+                                "description": "ScName_Index",
+                                "condition": "True",
+                                "subs": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "MayaOutLine",
+    "expanded": true,
+    "description": "maya大纲",
+    "condition": "True",
+    "subs": [
+      {
+        "name": "['geometry']",
+        "expanded": true,
+        "description": "GeometryGroup",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "UnrealRoot",
+        "expanded": true,
+        "description": "JntGroup",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "cam_rig:rigCamera",
+        "expanded": true,
+        "description": "CameraTrNode",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "cam_rig:rigCameraShape",
+        "expanded": true,
+        "description": "CameraShapeNode",
+        "condition": "True",
+        "subs": []
+      }
+    ]
+  },
+  {
+    "name": "Unreal",
+    "expanded": true,
+    "description": "description",
+    "condition": "True",
+    "subs": [
+      {
+        "name": "Content",
+        "expanded": true,
+        "description": "",
+        "condition": "True",
+        "subs": [
+          {
+            "name": "/Game/01_Main-Production/01_episode/Ep100/{AssetType}",
+            "expanded": true,
+            "description": "unrealUsualAssetDir",
+            "condition": "True",
+            "subs": []
+          },
+          {
+            "name": "/Game/01_Main-Production/01_episode/{AssetEpName}/{AssetType}/{AssetName}/{AssetName}.uasset",
+            "expanded": true,
+            "description": "TposeUEAssetGrpPath",
+            "condition": "True",
+            "subs": []
+          },
+          {
+            "name": "/Game/02_Shot-Production/01_Animation/{ShotEpName}/Shot_{ScName_Index}",
+            "expanded": true,
+            "description": "unrealShotDir",
+            "condition": "True",
+            "subs": []
+          },
+          {
+            "name": "/Game/02_Shot-Production/01_Animation/{self.ShotEpName}/Shot_{self.ScName_Index}/{ExName}{SkeletonAniSuffix}.uasset",
+            "expanded": true,
+            "description": "SkeAniUEGrpPath",
+            "condition": "True",
+            "subs": []
+          },
+          {
+            "name": "/Game/02_Shot-Production/01_Animation/{self.ShotEpName}/Shot_{self.ScName_Index}/Shot_{self.ScName_Index}.uasset",
+            "expanded": true,
+            "description": "unrealSeqFile",
+            "condition": "True",
+            "subs": []
+          },
+          {
+            "name": "/Game/02_Shot-Production/Level/{self.ProjectName}.umap",
+            "expanded": true,
+            "description": "unrealLeveFile",
+            "condition": "True",
+            "subs": []
+          },
+          {
+            "name": "name_GRP",
+            "expanded": true,
+            "description": "description",
+            "condition": "True",
+            "subs": []
+          }
+        ]
+      },
+      {
+        "name": "True",
+        "expanded": true,
+        "description": "saveUeProject",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "Z:/Cosmos_Wartale_UE_{UEVersion[0]}_{UEVersion[2]}/Cosmos_Wartale.uproject",
+        "expanded": true,
+        "description": "UEProjectFile",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "D:/EpicGames/UE_5.0/Engine/Binaries/Win64/UnrealEditor.exe",
+        "expanded": true,
+        "description": "UE5.0_InsLocation",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "D:/EpicGames/UE_5.1/Engine/Binaries/Win64/UnrealEditor.exe",
+        "expanded": true,
+        "description": "UE5.1_InsLocation",
+        "condition": "True",
+        "subs": []
+      }
+    ]
+  },
+  {
+    "name": "ExSetting",
+    "expanded": true,
+    "description": "导出设置",
+    "condition": "True",
+    "subs": [
+      {
+        "name": "",
+        "expanded": true,
+        "description": "TposeSuffix",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "_Ani",
+        "expanded": true,
+        "description": "SkeletonAniSuffix",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "_SkeGeoAni",
+        "expanded": true,
+        "description": "SkeletonAniMeshSuffix",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "{RefFileDir}/{AssetName}{TposeSuffix}.fbx",
+        "expanded": true,
+        "description": "TposeFbxExPath",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "Z:/Cosmos_Wartale/03_Main-Production/05_animation/{self.ShotEpName}/FBX/Shot_{self.ScName_Index}/{ExName}{SkeletonAniSuffix}.fbx",
+        "expanded": true,
+        "description": "SkeAniFbxExPath",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "Z:/Cosmos_Wartale/03_Main-Production/05_animation/{self.ShotEpName}/FBX/Shot_{self.ScName_Index}/{ExName}.fbx",
+        "expanded": true,
+        "description": "CameraFbxExPath",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "f\"{Lugwit_publicPath}/RenderFarm/MayaToUE/P4Triggers/SkeAni_TposeRelationshipFile.json\"",
+        "expanded": true,
+        "description": "SkeAni_TposeRelationshipFile",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "f\"{Lugwit_publicPath}/RenderFarm/MayaToUE/P4Triggers/ExHis/{hostName}/{ProjectName}_ExHistoryFile.json\"",
+        "expanded": true,
+        "description": "ExHistoryFile",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "CH",
+        "expanded": true,
+        "description": "character",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "PRP",
+        "expanded": true,
+        "description": "prop",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "BG",
+        "expanded": true,
+        "description": "scene",
+        "condition": "True",
+        "subs": []
+      },
+      {
+        "name": "Z:/Cosmos_Wartale/03_Main-Production/05_animation/{self.ShotEpName}/FBX/Shot_{self.ScName_Index}/{ExName}{SkeletonAniMeshSuffix}.fbx",
+        "expanded": true,
+        "description": "SkeMeshAniFbxExPath",
+        "condition": "True",
+        "subs": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,1 @@
+self_qss : str
