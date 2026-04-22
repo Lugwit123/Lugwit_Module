@@ -3,7 +3,7 @@ from __future__ import absolute_import
 import subprocess,os,sys,codecs,json,traceback,re
 userName = os.environ.get('USERNAME')
 import inspect
-LugwitToolDir=r"d:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayap"
+
 # 自动安装异常钩子（如果环境变量允许）
 try:
     from .l_src.exception_hook import install_trace_hook
@@ -48,7 +48,6 @@ __main__.lprint=lprint
 if sys.version_info.major==2:
     __main__.open=codecs.open
 py_ver='{}{}'.format(sys.version_info.major,sys.version_info.minor)
-userConfigFile = os.path.expandvars(r"%USERPROFILE%\.Lugwit\config\config.json")
 Lugwit_mayaPluginPath=os.environ.get('Lugwit_mayaPluginPath')
 
 oriEnvVarFile=os.path.expandvars("%USERPROFILE%")+r'/.Lugwit/config/oriEnvVar.json'
@@ -101,11 +100,3 @@ def init_os():# 执行运行这个函数才会导入某些模块,避免加载过
     global l_os,l_subprocess
     from .l_src import l_os
     from .l_src import l_subprocess
-
-try:
-    from .l_src.usualFunc_dev import dynamic_import
-except ImportError:
-    try:
-        from .l_src.usualFunc_old import dynamic_import
-    except ImportError:
-        dynamic_import = None

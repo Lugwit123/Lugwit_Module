@@ -31,7 +31,7 @@ import  Lugwit_liscense
 liscense=Lugwit_liscense.liscense
 import l_src
 
-lfileSystem = l_src.FileSystem
+
 from l_src.l_winreg.l_winreg import CustomRegistryKey
 from l_src.getExecuteExe import *
 Lugwit_publicPath = ""
@@ -64,10 +64,8 @@ os.environ['oriEnvVarFile'] = oriEnvVarFile
 
 try:
     from tool_env import *
-    import tool_env as _tool_env
-    _tool_env_all = getattr(_tool_env, '__all__', [])
 except Exception:
-    _tool_env_all = []
+    pass
 
 # 常用变量:
 TempDir=os.environ.get('Temp')
@@ -169,12 +167,5 @@ else:
             LPrint = None
 
 # 导出LPrint到模块级别
-__all__ = ['LPrint', 'hostName', 'try_exp', 'getCurrentTimeAsLogName'] + _tool_env_all
-
-# 同时把 main 模块自身所有公开名称也加进来，避免逐个追加
-import sys as _sys
-_main_names = [k for k in list(locals().keys()) if not k.startswith('_')]
-for _n in _main_names:
-    if _n not in __all__:
-        __all__.append(_n)
+__all__ = ['LPrint', 'hostName']
 

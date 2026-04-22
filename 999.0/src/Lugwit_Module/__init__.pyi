@@ -81,6 +81,7 @@ class LPrint:
     logwgt_plugin_mode: str
     logwgt_plugin_level: int
     logwgt_plugin_accumulated_content: str
+    file_log_enable: bool
 
     # 实例属性
     debug_mode: Optional[Union[str, bool]]  # 调试模式设置（使用 debug_mode 避免与方法名 debug 冲突）
@@ -111,7 +112,8 @@ class LPrint:
         *args: Any, 
         trace_depth: Optional[int] = None,
         force_print: bool = False,
-        max_length: Optional[int] = None,
+        max_length: int = 800,
+        max_prints_per_line: Optional[int] = None,
         level: Union[int, str, Callable] = logging.WARNING,
         log_group: Union[str, Any] = None,
         show_all_frame: bool = False,
@@ -121,11 +123,80 @@ class LPrint:
         **kwargs: Any
     ) -> Optional[str]: ...
     
-    def debug(self, *args: Any, **kwargs: Any) -> Optional[str]: ...
-    def info(self, *args: Any, **kwargs: Any) -> Optional[str]: ...
-    def warning(self, *args: Any, **kwargs: Any) -> Optional[str]: ...
-    def error(self, *args: Any, **kwargs: Any) -> Optional[str]: ...
-    def critical(self, *args: Any, **kwargs: Any) -> Optional[str]: ...
+    def debug(
+        self,
+        *args: Any,
+        trace_depth: Optional[int] = None,
+        force_print: bool = False,
+        max_length: int = 800,
+        max_prints_per_line: Optional[int] = None,
+        log_group: Union[str, Any] = None,
+        show_all_frame: bool = False,
+        popui: bool = False,
+        debug_self: Optional[bool] = None,
+        oneLine: bool = False,
+        **kwargs: Any,
+    ) -> Optional[str]: ...
+
+    def info(
+        self,
+        *args: Any,
+        trace_depth: Optional[int] = None,
+        force_print: bool = False,
+        max_length: int = 800,
+        max_prints_per_line: Optional[int] = None,
+        log_group: Union[str, Any] = None,
+        show_all_frame: bool = False,
+        popui: bool = False,
+        debug_self: Optional[bool] = None,
+        oneLine: bool = False,
+        **kwargs: Any,
+    ) -> Optional[str]: ...
+
+    def warning(
+        self,
+        *args: Any,
+        trace_depth: Optional[int] = None,
+        force_print: bool = False,
+        max_length: int = 800,
+        max_prints_per_line: Optional[int] = None,
+        log_group: Union[str, Any] = None,
+        show_all_frame: bool = False,
+        popui: bool = False,
+        debug_self: Optional[bool] = None,
+        oneLine: bool = False,
+        **kwargs: Any,
+    ) -> Optional[str]: ...
+
+    def error(
+        self,
+        *args: Any,
+        trace_depth: Optional[int] = None,
+        force_print: bool = False,
+        max_length: int = 800,
+        max_prints_per_line: Optional[int] = None,
+        log_group: Union[str, Any] = None,
+        show_all_frame: bool = False,
+        popui: bool = False,
+        debug_self: Optional[bool] = None,
+        oneLine: bool = False,
+        **kwargs: Any,
+    ) -> Optional[str]: ...
+
+    def critical(
+        self,
+        *args: Any,
+        trace_depth: Optional[int] = None,
+        force_print: bool = False,
+        max_length: int = 800,
+        max_prints_per_line: Optional[int] = None,
+        log_group: Union[str, Any] = None,
+        show_all_frame: bool = False,
+        popui: bool = False,
+        debug_self: Optional[bool] = None,
+        oneLine: bool = False,
+        **kwargs: Any,
+    ) -> Optional[str]: ...
     
     def __lshift__(self, other: Any) -> 'LPrint': ...
     
@@ -135,22 +206,7 @@ class LPrint:
     
     def set_log_output_wgt(self, widget_method: Callable, log_level: Optional[int] = None, auto_test: bool = True) -> bool: ...
     
-    def _debug_self_print(self, message: str) -> None: ...
-    
-    def _get_caller_debug_info(self, args: tuple) -> str: ...
-    
-    def _safe_unicode_args(self, args: tuple) -> tuple: ...
-    
-    def _format_log_message(self, *args, **kwargs) -> Optional[str]: ...
-    
-    def _check_call_stack(self) -> bool: ...
-    
-    def _get_level_name(self, level: int) -> str: ...
-    
-    def _run_connection_test(self, widget_method: Callable, method_name: str, level_name: str, log_level: Optional[int]) -> None: ...
-    
-    @staticmethod
-    def _is_function_match(function_name: str, module_name: str, pattern: str) -> bool: ...
+    # 注意：以下 "_" 前缀方法为内部实现细节，不在 stub 中暴露
     
     @classmethod
     def get_detailed_log_functions(cls) -> List[str]: ...
@@ -222,6 +278,9 @@ class LPrint:
         trace_skip_path_substrings: Optional[List[str]] = None,
         trace_skip_function_names: Optional[List[str]] = None,
         trace_each_call: Optional[bool] = None,
+        trace_line_locals: bool = True,
+        trace_path_id_limit: Optional[int] = None,
+        trace_log_stem: Optional[str] = None,
     ) -> bool: ...
 
     def trace_result_mp(
@@ -238,12 +297,16 @@ class LPrint:
         timeout: Optional[float] = None,
         trace_depth: Optional[int] = None,
         auto_result: bool = True,
-        decorated_func_source: Optional[Any] = None,
-        clear_log: bool = False,
+        decorated_func_source: Optional[tuple[str, str, int, str]] = None,
+        clear_log: bool = True,
         multiprocess: bool = False,
         trace_skip_path_substrings: Optional[List[str]] = None,
         trace_skip_function_names: Optional[List[str]] = None,
         trace_each_call: Optional[bool] = None,
+        trace_path_changes: bool = False,
+        trace_line_locals: bool = True,
+        trace_path_id_limit: Optional[int] = None,
+        trace_log_stem: Optional[str] = None,
     ) -> bool: ...
 
     def trace_stop(self) -> int: ...
@@ -271,6 +334,10 @@ class LPrint:
         timeout: Optional[float] = None,
         trace_depth: Optional[int] = None,
         clear_log: bool = False,
+        trace_skip_function_names: Optional[List[str]] = None,
+        trace_skip_path_substrings: Optional[List[str]] = None,
+        trace_line_locals: bool = True,
+        trace_path_id_limit: Optional[int] = None,
     ) -> Any: ...
 
 # 函数类型

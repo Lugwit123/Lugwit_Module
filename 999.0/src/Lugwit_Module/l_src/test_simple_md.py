@@ -13,7 +13,7 @@ from usualFunc import LPrint  # 导入类
 lprint.trace_log_enable = True
 lprint.log_base_dir = os.path.join(os.path.dirname(__file__), "logs")
 # 固定写入 test_simple_md_work.md（不按日期分文件）
-lprint.trace_log_stem = "test_simple_md_work"
+
 
 
 lprint("# 测试开始")

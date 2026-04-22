@@ -3,11 +3,8 @@ from __future__ import absolute_import
 import sys
 import os
 
-# 添加 pytracemp 路径到 sys.path（使用绝对路径）
-_pytracemp_path = r'D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\pytracemp\src'
-if os.path.exists(_pytracemp_path) and _pytracemp_path not in sys.path:
-    sys.path.insert(0, _pytracemp_path)
 
+sys.path.append(r"D:\TD_Depot\Software\Lugwit_syncPlug\lugwit_insapp\trayapp\Lib\pytracemp\src")
 # 优先使用 pytracemp 外部版本（Python 3），失败则回退到本地版本（Python 2）
 try:
     from pytracemp.usualFunc import lprint
@@ -20,8 +17,7 @@ except ImportError:
         # 如果本地版本也不存在，使用 pytracemp 的 LPrint 类创建实例
         from pytracemp import LPrint
         lprint = LPrint() 
-from . import   FileSystem
-from . import l_parse_args
+
 
 
 # insLocation=importlib.import_module(src.insLocation)
