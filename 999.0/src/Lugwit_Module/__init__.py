@@ -2,7 +2,12 @@
 from __future__ import absolute_import
 import subprocess,os,sys,codecs,json,traceback,re
 userName = os.environ.get('USERNAME')
-import inspect
+
+Lugwit_PluginPath = "" 
+LugwitLibDir = ""
+LugwitAppDir = ""
+Lugwit_publicPath = ""
+LugwitPath = ""
 
 # 自动安装异常钩子（如果环境变量允许）
 try:
@@ -26,6 +31,7 @@ def is_main():
     返回:
         bool: 如果调用者是主模块，返回 True，否则返回 False。
     """
+    import inspect
     # 获取当前的堆栈帧
     stack = inspect.stack()
     # 调用者的堆栈帧通常是第二个元素
@@ -37,6 +43,49 @@ def is_main():
     return False
 
 
+
+def try_exp(func):
+    def warp_func(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as ex:
+            exc_type, exc_value, exc_traceback = sys.exc_info()
+            traceback_info = traceback.extract_tb(exc_traceback)
+            filename, line_number, func_name, text = traceback_info[-1]
+            
+            # 获取异常发生时的局部变量
+            # 需要找到原始函数的frame，而不是装饰器的frame
+            try:
+                # 遍历traceback找到原始函数的frame
+                frame = exc_traceback
+                while frame is not None:
+                    if frame.tb_frame.f_code.co_name == func.__name__:
+                        local_vars = frame.tb_frame.f_locals.copy()
+                        break
+                    frame = frame.tb_next
+                else:
+                    # 如果没找到，使用最后一个frame
+                    frame = exc_traceback
+                    while frame.tb_next:
+                        frame = frame.tb_next
+                    local_vars = frame.tb_frame.f_locals.copy()
+            except:
+                local_vars = {}
+            
+            if re.search('UnrealEditor',sys.executable):
+                import unreal
+                unreal.log_warning(u'函数 {0} 抛出异常'.format(func.__name__))
+                unreal.log_warning(u'错误发生在 File "{0}":line {1},'.format(filename, line_number))
+                unreal.log_warning(u'局部变量: {}'.format(json.dumps(local_vars,indent=4,ensure_ascii=False,default=repr)))
+                unreal.log_warning(traceback.format_exc())
+            else:
+                print(u'函数 {0} 抛出异常'.format(func.__name__))
+                print(u'错误发生在 File "{0}", line {1},'.format(filename, line_number))
+                local_vars = json.dumps(local_vars,indent=2,ensure_ascii=False,default=repr)
+                print(u'局部变量: {}'.format(local_vars)[:1000])
+
+                print(traceback.format_exc())
+    return warp_func
 
 
 from .main import *

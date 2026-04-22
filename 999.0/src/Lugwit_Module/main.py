@@ -62,58 +62,12 @@ if userDir == "C:\\Windows\\system32\\config\\systemprofile":
 oriEnvVarFile=userDir+r'/.Lugwit/config/oriEnvVar.json'
 os.environ['oriEnvVarFile'] = oriEnvVarFile
 
-try:
-    from tool_env import *
-except Exception:
-    pass
+from tool_env import *
 
 # 常用变量:
 TempDir=os.environ.get('Temp')
 
 sys.path.insert(0,Lugwit_publicPath+r'Python\PyFile\Pyd_File\Py{}'.format(pyVersion))
-
-def try_exp(func):
-    def warp_func(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
-        except Exception as ex:
-            exc_type, exc_value, exc_traceback = sys.exc_info()
-            traceback_info = traceback.extract_tb(exc_traceback)
-            filename, line_number, func_name, text = traceback_info[-1]
-            
-            # 获取异常发生时的局部变量
-            # 需要找到原始函数的frame，而不是装饰器的frame
-            try:
-                # 遍历traceback找到原始函数的frame
-                frame = exc_traceback
-                while frame is not None:
-                    if frame.tb_frame.f_code.co_name == func.__name__:
-                        local_vars = frame.tb_frame.f_locals.copy()
-                        break
-                    frame = frame.tb_next
-                else:
-                    # 如果没找到，使用最后一个frame
-                    frame = exc_traceback
-                    while frame.tb_next:
-                        frame = frame.tb_next
-                    local_vars = frame.tb_frame.f_locals.copy()
-            except:
-                local_vars = {}
-            
-            if re.search('UnrealEditor',sys.executable):
-                import unreal
-                unreal.log_warning(u'函数 {0} 抛出异常'.format(func.__name__))
-                unreal.log_warning(u'错误发生在 File "{0}":line {1},'.format(filename, line_number))
-                unreal.log_warning(u'局部变量: {}'.format(json.dumps(local_vars,indent=4,ensure_ascii=False,default=repr)))
-                unreal.log_warning(traceback.format_exc())
-            else:
-                print(u'函数 {0} 抛出异常'.format(func.__name__))
-                print(u'错误发生在 File "{0}", line {1},'.format(filename, line_number))
-                local_vars = json.dumps(local_vars,indent=2,ensure_ascii=False,default=repr)
-                print(u'局部变量: {}'.format(local_vars)[:1000])
-
-                print(traceback.format_exc())
-    return warp_func
 
 
 
