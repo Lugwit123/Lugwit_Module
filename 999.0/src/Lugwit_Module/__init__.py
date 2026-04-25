@@ -9,6 +9,7 @@ LugwitAppDir = ""
 Lugwit_publicPath = ""
 LugwitPath = ""
 
+
 # 自动安装异常钩子（如果环境变量允许）
 try:
     from .l_src.exception_hook import install_trace_hook
@@ -149,3 +150,14 @@ def init_os():# 执行运行这个函数才会导入某些模块,避免加载过
     global l_os,l_subprocess
     from .l_src import l_os
     from .l_src import l_subprocess
+
+
+def __getattr__(name):
+    """模块级属性访问防护：访问不存在的属性时打印警告并返回安全默认值，不中断程序"""
+    import warnings
+    warnings.warn(f"Lugwit_Module 属性 '{name}' 不存在，返回默认值", stacklevel=2)
+    # 如果属性名看起来像函数/方法（以 get/set/is/create/check 等开头），返回一个空操作函数
+    if name.startswith(('get', 'set', 'is', 'create', 'check', 'start', 'stop', 'run')):
+        return lambda *args, **kwargs: ''
+    # 否则返回空字符串（大多数属性是路径字符串）
+    return ''

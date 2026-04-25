@@ -63,6 +63,7 @@ oriEnvVarFile=userDir+r'/.Lugwit/config/oriEnvVar.json'
 os.environ['oriEnvVarFile'] = oriEnvVarFile
 
 from tool_env import *
+import tool_env as _tool_env
 
 # 常用变量:
 TempDir=os.environ.get('Temp')
@@ -120,6 +121,6 @@ else:
             print("[Lugwit_Module] 错误: 无法导入任何版本的LPrint: {}".format(e2))
             LPrint = None
 
-# 导出LPrint到模块级别
-__all__ = ['LPrint', 'hostName']
+# 导出LPrint到模块级别，同时导出tool_env中的所有变量
+__all__ = ['LPrint', 'hostName', 'getCurrentTimeAsLogName'] + getattr(_tool_env, '__all__', [])
 

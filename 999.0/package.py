@@ -8,7 +8,7 @@ description = (
 )
 authors = ["Lugwit Team"]
 
-requires = ["python-3.7+"]
+requires = ["python-3.7+","pytracemp"]
 
 
 def commands():
