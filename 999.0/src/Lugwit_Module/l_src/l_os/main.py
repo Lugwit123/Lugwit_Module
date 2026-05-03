@@ -3,8 +3,6 @@
 import os
 import ctypes
 from ctypes import wintypes
-import tkinter as tk
-from tkinter import messagebox
 
 
 def check_path(path):
@@ -39,36 +37,11 @@ def check_path(path):
         # print ("路径不是目录也不是符号链接/Junction Point")
         return None
 
-def center_window(root, width=300, height=200):
-    # 获取屏幕尺寸以及窗口宽高
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-    
-    # 计算 x, y 坐标
-    x = (screen_width / 2) - (width / 2)
-    y = (screen_height / 2) - (height / 2)
-    
-    # 设置窗口的几何尺寸
-    root.geometry('%dx%d+%d+%d' % (width, height, x, y))
-
-def simpleWin(title=u"提示" ,text="这是一个标签",btn_command=None):
-    root = tk.Tk()
-    root.title(title)
-    center_window(root, 300, 150)
-    label = tk.Label(root, text=text)
-    label.pack(pady=10)  # pady=10增加垂直外边距
-    button = tk.Button(root, text="OK", command=btn_command)
-    button.pack(pady=5)  # pady=5增加垂直外边距
-    root.mainloop()
 def startdir(dirToOpen=None):
     if not os.path.exists(dirToOpen):
-        root = tk.Tk()
-        root.withdraw()
-        response = messagebox.askquestion("确认", 
-            u"目录{}不存在,是否创建并打开".format(dirToOpen))
-        # 销毁Tk窗口
-        root.destroy()
-        if response == 'yes':
+        from l_simple_gui import ask_yes_no
+
+        if ask_yes_no("目录{}不存在,是否创建并打开".format(dirToOpen), title="确认"):
             os.makedirs(dirToOpen)
             os.startfile(dirToOpen)
     else:
