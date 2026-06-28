@@ -62,19 +62,7 @@ if userDir == "C:\\Windows\\system32\\config\\systemprofile":
 oriEnvVarFile=userDir+r'/.Lugwit/config/oriEnvVar.json'
 os.environ['oriEnvVarFile'] = oriEnvVarFile
 
-try:
-    from tool_env import *
-    import tool_env as _tool_env
-except Exception as e:
-    traceback.print_exc()
-    print("[Lugwit_Module] 警告: tool_env 导入失败，已跳过: {}".format(e))
 
-    class _EmptyToolEnv(object):
-        __all__ = []
-
-    _tool_env = _EmptyToolEnv()
-    if "pyVersion" not in globals():
-        pyVersion = sys.version_info[0]
 
 # 常用变量:
 TempDir=os.environ.get('Temp')
@@ -133,5 +121,5 @@ else:
             LPrint = None
 
 # 导出LPrint到模块级别，同时导出tool_env中的所有变量
-__all__ = ['LPrint', 'hostName', 'getCurrentTimeAsLogName'] + getattr(_tool_env, '__all__', [])
+# __all__ = ['LPrint', 'hostName', 'getCurrentTimeAsLogName'] 
 
